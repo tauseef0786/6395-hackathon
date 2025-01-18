@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,8 +26,8 @@ const Header = () => {
 
         {/* Links */}
         <ul
-          className={`absolute lg:static top-16 w-full lg:w-auto lg:flex backdrop-blur-sm backdrop-saturate-150 bg-white/80 text-center lg:bg-transparent lg:space-x-8 lg:items-center p-4 lg:p-0 transform duration-700 ${
-            isOpen ? 'block' : 'hidden'
+          className={`absolute lg:static top-16 left-0 w-full lg:w-auto lg:flex text-center lg:space-x-8 lg:items-center p-4 lg:p-0 transform duration-700 backdrop-blur-sm backdrop-saturate-150 bg-white/80 lg:bg-transparent lg:shadow-none ${
+            isOpen ? "block" : "hidden"
           }`}
         >
           <li className="py-2 lg:py-0">

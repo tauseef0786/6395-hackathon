@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { getBase64 } from "../helpers/image-Helper";
+import robo1 from "../assets/robo1.mp4"; // Import the MP4 file
 
 const AiwithImage = () => {
   const genAI = new GoogleGenerativeAI("AIzaSyBVGsZc-vdZuU9zS6dculPS0ZFh0905k2c");
@@ -15,7 +16,18 @@ const AiwithImage = () => {
     const lines = responseText.split("\n");
 
     lines.forEach((line) => {
-      if (line.includes("Calories") || line.includes("Protein") || line.includes("Fat") || line.includes("Carbs")) {
+      if (
+        line.includes("Calories") ||
+        line.includes("Protein") ||
+        line.includes("Fat") ||
+        line.includes("Carbohydrates") ||
+        line.includes("Fiber") ||
+        line.includes("Sugar") ||
+        line.includes("Vitamins") ||
+        line.includes("Minerals") ||
+        line.includes("Sodium") ||
+        line.includes("Water")
+      ) {
         const columns = line.split(":");
         nutritionData.push({ nutrient: columns[0].trim(), value: columns[1]?.trim() });
       }
@@ -24,23 +36,48 @@ const AiwithImage = () => {
     return nutritionData;
   };
 
+  const extractDetailedParagraph = (responseText) => {
+    const paragraphStartIndex = responseText.indexOf("Detailed Analysis:");
+    if (paragraphStartIndex !== -1) {
+      return responseText.slice(paragraphStartIndex).trim();
+    }
+    return "No detailed analysis available for this food.";
+  };
+
   const aiImageRun = async () => {
     setLoading(true);
     setResponse(null);
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-    const prompt = `Analyze the provided image of food and:
-    1. Identify the food item (e.g., banana, pizza, salad, etc.).
-    2. Provide nutritional values per 100 grams of the food item.
-    3. If the food is a category (e.g., pizza), list different types with their nutritional values per 100 grams.`;
-    
+    const prompt = `
+      Analyze the provided food image and:
+      1. Identify the food type (e.g., idli-sambar, dosa, pizza, fruits, fast food, etc.).
+      2. Provide a nutritional table with at least 10 nutrients for the identified food item, including:
+         - Calories
+         - Protein
+         - Fat
+         - Carbohydrates
+         - Fiber
+         - Sugar
+         - Vitamins
+         - Minerals
+         - Sodium
+         - Water
+      3. Write a detailed paragraph about this food, including:
+         - Food category (traditional dish, fast food, snack, etc.).
+         - Nutritional benefits for weight loss, weight gain, or health.
+         - How this food is typically consumed or used in meals or diets.
+         - Fun facts or trivia about the food.
+      If the image is unclear or the food is unrecognizable, provide suggestions for re-uploading a clearer image.`;
+
     try {
       const result = await model.generateContent([prompt, imageInlineData]);
       const response = await result.response;
       const text = await response.text();
 
       const nutritionData = processNutritionData(text);
-      setResponse(nutritionData);
+      const detailedParagraph = extractDetailedParagraph(text);
+      setResponse({ nutritionData, detailedParagraph });
     } catch (error) {
       console.error("Error fetching AI response:", error);
     } finally {
@@ -68,79 +105,79 @@ const AiwithImage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center py-20 pt-16">
-      <div className="w-full max-w-6xl px-4 mt-32 gap-8 flex flex-col md:flex-row">
-        {/* Left side - Image upload and analyzer card */}
-        <div className="w-full md:w-1/3 p-6 shadow-lg bg-violet-400 rounded-lg mb-8 md:mb-0">
-          <div className="flex flex-col items-center">
-            <input
-              type="file"
-              onChange={handleImageChange}
-              className="mb-4 p-2 text-purple-600 border border-purple-300 rounded-lg"
-            />
-            <button
-              className="px-4 py-2 bg-purple-600 text-white font-bold rounded-lg shadow-lg hover:bg-purple-700"
-              onClick={aiImageRun}
-              disabled={loading || !image}
-            >
-              {loading ? "Processing..." : "Analyze Image"}
-            </button>
-          </div>
+    <div className="min-h-screen bg-gradient-to-b from-white to-green-300 flex flex-col items-center py-10">
+      <div className="w-full max-w-4xl px-4 mt-10 gap-6 flex flex-col md:flex-row">
+        <div className="w-full md:w-1/2 p-4 shadow-md bg-white border border-violet-200 rounded-md">
+          <h2 className="text-lg font-semibold text-violet-700 mb-4">Analyze Image</h2>
+          <input
+            type="file"
+            onChange={handleImageChange}
+            className="w-full mb-4 p-2 text-violet-700 border border-violet-300 rounded-md"
+          />
+          <button
+            className={`w-full px-4 py-2 bg-violet-600 text-white font-medium rounded-md shadow-md hover:bg-violet-700 ${
+              loading || !image ? "opacity-50 cursor-not-allowed" : ""
+            }`}
+            onClick={aiImageRun}
+            disabled={loading || !image}
+          >
+            {loading ? "Processing..." : "Analyze Image"}
+          </button>
 
           {image && (
             <img
               src={image}
-              className="w-full mt-4 rounded-lg"
+              className="w-full mt-4 rounded-md border border-violet-300 shadow-sm"
               alt="Uploaded Preview"
             />
           )}
         </div>
 
-        {/* Right side - AI response and nutritional data */}
-        <div className="w-full md:w-2/3 p-6 bg-green-400 shadow-lg rounded-lg">
+        <div className="w-full md:w-1/2 p-4 shadow-md bg-white border border-violet-200 rounded-md">
+          <h2 className="text-lg font-semibold text-violet-700 mb-4">AI Response</h2>
+
           {loading && !aiResponse && (
-            <div className="flex items-center justify-center h-64">
-              <div className="animate-spin rounded-full h-16 w-16 border-8 border-t-4 border-b-violet-600 border-opacity-90"></div>
+            <div className="flex items-center justify-center h-60 p-4">
+              <video src={robo1} autoPlay loop muted className="w-42 h-42" />
             </div>
           )}
 
           {aiResponse && (
             <>
-              <h2 className="text-lg font-semibold text-purple-600 mb-2">Nutritional Information:</h2>
-              <table className="table-auto w-full border-collapse mb-6">
+              <h3 className="text-md font-medium text-violet-600 mb-3">Nutritional Information:</h3>
+              <table className="table-auto w-full border-collapse mb-4">
                 <thead>
                   <tr>
-                    <th className="border p-2 text-left">Nutrient</th>
-                    <th className="border p-2 text-left">Value per 100g</th>
+                    <th className="border p-2 text-left text-violet-600">Nutrient</th>
+                    <th className="border p-2 text-left text-violet-600">Value per 100g</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {aiResponse.length > 0 ? (
-                    aiResponse.map((row, index) => (
+                  {aiResponse.nutritionData.length > 0 ? (
+                    aiResponse.nutritionData.map((row, index) => (
                       <tr key={index}>
-                        <td className="border p-2">{row.nutrient}</td>
-                        <td className="border p-2">{row.value}</td>
+                        <td className="border p-2 text-gray-700">{row.nutrient}</td>
+                        <td className="border p-2 text-gray-700">{row.value}</td>
                       </tr>
                     ))
                   ) : (
                     <tr>
                       <td colSpan="2" className="border p-2 text-center text-gray-500">
-                        No nutritional data available for this food.
+                        No nutritional data available.
                       </td>
                     </tr>
                   )}
                 </tbody>
               </table>
 
-              <p className="text-gray-700">
-                Based on the analysis, this food item provides a healthy source of essential nutrients. For example, bananas are rich in potassium and dietary fiber, making them excellent for heart health and digestion. The exact nutritional value will depend on factors such as the size of the portion and ripeness. For pizzas, each type may vary in terms of calories, fat content, and other nutrients, so it's important to check individual varieties.
-              </p>
+              <h3 className="text-md font-medium text-violet-600 mb-2">Detailed Analysis:</h3>
+              <p className="text-gray-700">{aiResponse.detailedParagraph}</p>
             </>
           )}
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default AiwithImage;
