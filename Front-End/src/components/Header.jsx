@@ -9,7 +9,7 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 w-full text-violet-600 font-sans font-normal px-6 p-2">
+    <header className="fixed top-0 left-0 w-full backdrop-blur-sm backdrop-saturate-150 bg-white/80 text-violet-700 z-20">
       <nav className="container mx-auto flex justify-between items-center p-4">
         {/* Logo */}
         <div className="text-2xl font-bold">
@@ -18,7 +18,7 @@ const Header = () => {
 
         {/* Hamburger Button */}
         <button
-          className="block lg:hidden text-2xl"
+          className="block lg:hidden text-2xl text-violet-700"
           onClick={toggleMenu}
         >
           ☰
@@ -26,14 +26,14 @@ const Header = () => {
 
         {/* Links */}
         <ul
-          className={`absolute lg:static top-16 left-0 w-full lg:w-auto lg:flex bg-blue-600 lg:bg-transparent lg:space-x-8 lg:items-center p-4 lg:p-0 transition-all duration-300 ${
+          className={`absolute lg:static top-16 w-full lg:w-auto lg:flex backdrop-blur-sm backdrop-saturate-150 bg-white/80 text-center lg:bg-transparent lg:space-x-8 lg:items-center p-4 lg:p-0 transform duration-700 ${
             isOpen ? 'block' : 'hidden'
           }`}
         >
           <li className="py-2 lg:py-0">
             <Link
               to="/"
-              className="block lg:inline hover:text-violet-800 hover:underline"
+              className="block lg:inline hover:text-violet-900 hover:underline"
               onClick={() => setIsOpen(false)}
             >
               Home
@@ -41,8 +41,26 @@ const Header = () => {
           </li>
           <li className="py-2 lg:py-0">
             <Link
+              to="/ai-with-text"
+              className="block lg:inline hover:text-violet-900 hover:underline"
+              onClick={() => setIsOpen(false)}
+            >
+              Ai With Text
+            </Link>
+          </li>
+          <li className="py-2 lg:py-0">
+            <Link
+              to="/ai-with-image"
+              className="block lg:inline hover:text-violet-900 hover:underline"
+              onClick={() => setIsOpen(false)}
+            >
+              Ai with Image
+            </Link>
+          </li>
+          <li className="py-2 lg:py-0">
+            <Link
               to="/about-us"
-              className="block lg:inline hover:text-violet-800 hover:underline"
+              className="block lg:inline hover:text-violet-900 hover:underline"
               onClick={() => setIsOpen(false)}
             >
               About Us
@@ -51,7 +69,7 @@ const Header = () => {
           <li className="py-2 lg:py-0">
             <Link
               to="/user-guide"
-              className="block lg:inline hover:text-violet-800 hover:underline"
+              className="block lg:inline hover:text-violet-900 hover:underline"
               onClick={() => setIsOpen(false)}
             >
               User Guide
@@ -60,7 +78,7 @@ const Header = () => {
           <li className="py-2 lg:py-0">
             <Link
               to="/calories-calculator"
-              className="block lg:inline hover:text-violet-800 hover:underline"
+              className="block lg:inline hover:text-violet-900 hover:underline"
               onClick={() => setIsOpen(false)}
             >
               Calories Calculator
@@ -69,7 +87,7 @@ const Header = () => {
           <li className="py-2 lg:py-0">
             <Link
               to="/contact-us"
-              className="block lg:inline hover:text-violet-800 hover:underline"
+              className="block lg:inline hover:text-violet-900 hover:underline"
               onClick={() => setIsOpen(false)}
             >
               Contact Us

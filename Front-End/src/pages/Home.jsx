@@ -1,26 +1,53 @@
-import React from 'react';
-import hero from '../assets/hero.png';
-import hero1 from '../assets/hero1.png';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { FaRobot } from "react-icons/fa";
+import hero from "../assets/hero.png";
+import hero1 from "../assets/hero1.png";
 
 const HomePage = () => {
+  const navigate = useNavigate();
+
   return (
     <div
-      className="min-h-screen bg-cover bg-center flex items-center justify-start"
+      className="min-h-screen bg-cover bg-center flex flex-col justify-between items-center lg:justify-center "
       style={{
-        backgroundImage: `url(${hero1})`, // Default to mobile hero image
+        backgroundImage: `url(${hero})`,
+        backgroundSize: "cover", // Ensure full coverage
+        backgroundPosition: "center", // Center the image
+        backgroundRepeat: "no-repeat", // Prevent tiling
       }}
     >
-      {/* Desktop version with hero1.png */}
-      <div className="hidden lg:block" style={{ backgroundImage: `url(${hero})` }} />
-      
-      <div className="bg-white bg-opacity-80 p-8 rounded-lg shadow-lg max-w-sm w-full ml-10">
-        <p className="text-3xl font-semibold mb-4 text-gray-800">Welcome to Our Website</p>
-        <p className="text-lg mb-6 text-gray-600">Explore our amazing features and discover more!</p>
+      {/* Desktop hero image */}
+      <div
+        className="hidden lg:block absolute inset-0 bg-cover bg-center "
+        style={{
+          backgroundImage: `url(${hero1})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      />
+
+      {/* Content */}
+      <div className="z-10 p-6 text-center lg:text-left w-full lg:max-w-lg">
+        <h1 className="text-2xl lg:text-3xl font-bold text-violet-600 mb-4 mt-40 text-center">
+          Ask your food nutrition query to Nutrition Specialist AI
+        </h1>
+      </div>
+
+      {/* Buttons */}
+      <div className="z-10 flex flex-col lg:flex-row gap-4 mb-6">
         <button
-          className="px-6 py-3 bg-violet-600 text-white rounded hover:bg-violet-700"
-          onClick={() => alert('Explore Now clicked!')}
+          className="px-4 py-2 text-sm lg:text-base bg-violet-600 text-white font-medium rounded-lg shadow-md flex items-center justify-center gap-2 hover:bg-violet-700 transition"
+          onClick={() => navigate("/ai-with-image")}
         >
-          Explore Now
+          <FaRobot className="text-white" /> Image to Response
+        </button>
+        <button
+          className="px-4 py-2 text-sm lg:text-base bg-violet-600 text-white font-medium rounded-lg shadow-md flex items-center justify-center gap-2 hover:bg-violet-700 transition"
+          onClick={() => navigate("/ai-with-text")}
+        >
+          <FaRobot className="text-white" /> Text to Response
         </button>
       </div>
     </div>
