@@ -9,7 +9,7 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 w-full backdrop-blur-sm backdrop-saturate-150 bg-white/80 text-violet-700 z-20">
+    <header className="fixed top-0 left-0 w-full backdrop-blur-sm px-10 backdrop-saturate-150 bg-white/80 text-violet-700 z-20">
       <nav className="container mx-auto flex justify-between items-center p-4">
         {/* Logo */}
         <div className="text-2xl font-bold">
@@ -37,6 +37,15 @@ const Header = () => {
               onClick={() => setIsOpen(false)}
             >
               Home
+            </Link>
+          </li>
+          <li className="py-2 lg:py-0">
+            <Link
+              to="/ai-with-text"
+              className="block lg:inline hover:text-violet-900 hover:underline"
+              onClick={() => setIsOpen(false)}
+            >
+              Ask a query
             </Link>
           </li>
           <li className="py-2 lg:py-0">

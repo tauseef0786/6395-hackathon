@@ -18,28 +18,29 @@ const HomePage = () => {
         }}
       >
         {/* Content Wrapper */}
-        <div className="absolute bottom-0 w-full px-6 sm:px-12 lg:px-16 lg:w-auto lg:bottom-10 lg:left-10 flex flex-col justify-center items-center sm:items-start text-center lg:text-left mb-16">
+        <div className="absolute bottom-0 w-full px-6 sm:px-12 lg:px-16 lg:mb-40 lg:w-auto lg:bottom-10 lg:left-10 flex flex-col justify-center items-center sm:items-start text-center lg:text-left">
           {/* Title Section */}
           <div className="w-full mb-6">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-violet-600 "
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-violet-600 "
             style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)" }}>
-              Ask nutrition query to<br/> Nutrition Specialist AI
+              "Get Expert Nutrition Advice
+              <br/> from Our AI Specialist!"
             </h1>
           </div>
 
           {/* Buttons Section */}
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 justify-center sm:justify-start">
+          <div className="flex flex-col sm:flex-row gap-4 lg:ml-16 sm:gap-8 justify-center sm:justify-start">
+            <button
+              className="px-8 py-3 text-lg bg-violet-600 text-white font-medium rounded-lg shadow-md flex items-center justify-center gap-2 hover:bg-violet-700 transition "
+              onClick={() => navigate("/ai-with-text")}
+            >
+              <FaRobot className="text-white" /> Text to Response
+            </button>
             <button
               className="px-6 py-3 text-lg bg-violet-600 text-white font-medium rounded-lg shadow-md flex items-center justify-center gap-2 hover:bg-violet-700 transition"
               onClick={() => navigate("/ai-with-image")}
             >
               <FaRobot className="text-white" /> Image to Response
-            </button>
-            <button
-              className="px-8 py-3 text-lg bg-violet-600 text-white font-medium rounded-lg shadow-md flex items-center justify-center gap-2 hover:bg-violet-700 transition"
-              onClick={() => navigate("/ai-with-text")}
-            >
-              <FaRobot className="text-white" /> Text to Response
             </button>
           </div>
         </div>

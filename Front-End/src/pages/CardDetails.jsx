@@ -9,8 +9,11 @@ export default function CardDetails() {
 
   if (!dish) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-gray-100">
-        <h1 className="text-2xl font-bold">No dish details available.</h1>
+
+      <div className="flex items-center justify-center min-h-screen bg-violet-100">
+        <h1 className="text-2xl font-bold text-violet-700">No dish details available.</h1>
+
+    
       </div>
     );
   }
@@ -27,44 +30,56 @@ export default function CardDetails() {
   `;
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen flex flex-col sm:flex-row items-center justify-center">
+
+    <div className="min-h-screen bg-gradient-to-b from-violet-200 to-violet-500 p-8 flex flex-col items-center relative">
+      {/* Back Button */}
       <button
-        className="mb-4 bg-blue-500 text-white px-4 py-2 rounded self-start"
+        className="absolute top-24 left-8 bg-violet-600 text-white px-6 py-2 rounded-md shadow-lg hover:bg-violet-700 transition-all"
+
         onClick={() => navigate(-1)}
       >
         Back
       </button>
-      <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col sm:flex-row gap-6 items-center">
-        <div className="flex flex-col sm:flex-row items-center">
-          <img
-            className="w-full sm:w-1/2 h-[300px] sm:h-auto object-cover rounded-lg mb-4 sm:mb-0 sm:mr-6"
-            src={dish.image}
-            alt={dish.dishName}
-          />
-          <div>
-            <h1 className="text-3xl font-bold mb-4">{dish.dishName}</h1>
-            <p className="text-lg mb-4">Total Calories: {dish.dishCalories}</p>
-            <h2 className="text-xl font-semibold mb-2">Items:</h2>
-            <ul className="list-disc ml-6">
-              {dish.items.map((item) => (
-                <li key={item._id} className="mb-2">
-                  {item.name} ({item.quantity}): {item.caloriesPerUnit} cal each →{" "}
-                  {item.totalCalories} cal
-                </li>
-              ))}
-            </ul>
-            <h2 className="text-xl font-semibold mt-4">Nutrients:</h2>
-            <p>Carbohydrates: {dish.nutrients.carbohydrates}g</p>
-            <p>Fats: {dish.nutrients.fats}g</p>
-            <p>Proteins: {dish.nutrients.proteins}g</p>
+
+
+      <div className="flex flex-col sm:flex-row gap-8 w-full sm:w-3/4 md:w-2/3 lg:w-2/3">
+        {/* Dish Details */}
+        <div className="bg-white rounded-lg shadow-xl p-8 w-full sm:w-2/3 text-violet-700 flex flex-col items-start">
+          <div className="w-full mb-6">
+            <img
+              className="w-full h-[300px] sm:h-auto object-cover rounded-lg"
+              src={dish.image}
+              alt={dish.dishName}
+            />
           </div>
+          <h1 className="text-3xl font-bold mb-4">{dish.dishName}</h1>
+          <p className="text-lg mb-6">Total Calories: {dish.dishCalories} cal</p>
+          
+          <h2 className="text-2xl font-semibold mb-2">Ingredients:</h2>
+          <ul className="list-disc ml-6 mb-6">
+            {dish.items.map((item) => (
+              <li key={item._id} className="mb-2">
+                {item.name} ({item.quantity}): {item.caloriesPerUnit} cal each →{" "}
+                {item.totalCalories} cal
+              </li>
+            ))}
+          </ul>
+
+          <h2 className="text-2xl font-semibold mt-4">Nutrients:</h2>
+          <p>Carbohydrates: {dish.nutrients.carbohydrates}g</p>
+          <p>Fats: {dish.nutrients.fats}g</p>
+          <p>Proteins: {dish.nutrients.proteins}g</p>
         </div>
-        <div className="mt-6 sm:mt-0 flex justify-center">
+
+        {/* QR Code Section */}
+        <div className="bg-white p-6 rounded-lg shadow-lg w-full sm:w-1/3 flex justify-center items-center ml-5">
+
           <QRCode
             value={qrCodeData}
             size={250}
             bgColor="#ffffff"
-            fgColor="#000000"
+            fgColor="#4B0082"  // Violet color for the QR Code
+
             level="Q"
             includeMargin={true}
           />
