@@ -1,55 +1,52 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { FaRobot } from "react-icons/fa";
-import hero from "../assets/hero.png";
-import hero1 from "../assets/hero1.png";
+import hero1 from "../assets/hero1.png"; // Only using hero1
+import Nutrition from "../components/Nutrition";
 
 const HomePage = () => {
   const navigate = useNavigate();
 
   return (
-    <div
-      className="min-h-screen bg-cover bg-center flex flex-col justify-between items-center lg:justify-center "
-      style={{
-        backgroundImage: `url(${hero})`,
-        backgroundSize: "cover", // Ensure full coverage
-        backgroundPosition: "center", // Center the image
-        backgroundRepeat: "no-repeat", // Prevent tiling
-      }}
-    >
-      {/* Desktop hero image */}
+    <div>
       <div
-        className="hidden lg:block absolute inset-0 bg-cover bg-center "
+        className="min-h-screen flex flex-col justify-between items-center relative bg-cover bg-center"
         style={{
           backgroundImage: `url(${hero1})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundPosition: "center right 15%", // Center background image for all screens
           backgroundRepeat: "no-repeat",
         }}
-      />
+      >
+        {/* Content Wrapper */}
+        <div className="absolute bottom-0 w-full px-6 sm:px-12 lg:px-16 lg:mb-40 lg:w-auto lg:bottom-10 lg:left-10 flex flex-col justify-center items-center sm:items-start text-center lg:text-left">
+          {/* Title Section */}
+          <div className="w-full mb-6">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-violet-600 "
+            style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)" }}>
+              "Get Expert Nutrition Advice
+              <br/> from Our AI Specialist!"
+            </h1>
+          </div>
 
-      {/* Content */}
-      <div className="z-10 p-6 text-center lg:text-left w-full lg:max-w-lg">
-        <h1 className="text-2xl lg:text-3xl font-bold text-violet-600 mb-4 mt-40 text-center">
-          Ask your food nutrition query to Nutrition Specialist AI
-        </h1>
+          {/* Buttons Section */}
+          <div className="flex flex-col sm:flex-row gap-4 lg:ml-16 sm:gap-8 justify-center sm:justify-start">
+            <button
+              className="px-8 py-3 text-lg bg-violet-600 text-white font-medium rounded-lg shadow-md flex items-center justify-center gap-2 hover:bg-violet-700 transition "
+              onClick={() => navigate("/ai-with-text")}
+            >
+              <FaRobot className="text-white" /> Text to Response
+            </button>
+            <button
+              className="px-6 py-3 text-lg bg-violet-600 text-white font-medium rounded-lg shadow-md flex items-center justify-center gap-2 hover:bg-violet-700 transition"
+              onClick={() => navigate("/ai-with-image")}
+            >
+              <FaRobot className="text-white" /> Image to Response
+            </button>
+          </div>
+        </div>
       </div>
 
-      {/* Buttons */}
-      <div className="z-10 flex flex-col lg:flex-row gap-4 mb-6">
-        <button
-          className="px-4 py-2 text-sm lg:text-base bg-violet-600 text-white font-medium rounded-lg shadow-md flex items-center justify-center gap-2 hover:bg-violet-700 transition"
-          onClick={() => navigate("/ai-with-image")}
-        >
-          <FaRobot className="text-white" /> Image to Response
-        </button>
-        <button
-          className="px-4 py-2 text-sm lg:text-base bg-violet-600 text-white font-medium rounded-lg shadow-md flex items-center justify-center gap-2 hover:bg-violet-700 transition"
-          onClick={() => navigate("/ai-with-text")}
-        >
-          <FaRobot className="text-white" /> Text to Response
-        </button>
-      </div>
+      <Nutrition />
     </div>
   );
 };

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,11 +9,11 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 w-full backdrop-blur-sm backdrop-saturate-150 bg-white/80 text-violet-700 z-20">
+    <header className="fixed top-0 left-0 w-full backdrop-blur-sm px-10 backdrop-saturate-150 bg-white/80 text-violet-700 z-20">
       <nav className="container mx-auto flex justify-between items-center p-4">
         {/* Logo */}
         <div className="text-2xl font-bold">
-          <Link to="/">MyApp</Link>
+          <Link to="/">Pro Nutrition</Link>
         </div>
 
         {/* Hamburger Button */}
@@ -26,8 +26,8 @@ const Header = () => {
 
         {/* Links */}
         <ul
-          className={`absolute lg:static top-16 w-full lg:w-auto lg:flex backdrop-blur-sm backdrop-saturate-150 bg-white/80 text-center lg:bg-transparent lg:space-x-8 lg:items-center p-4 lg:p-0 transform duration-700 ${
-            isOpen ? 'block' : 'hidden'
+          className={`absolute lg:static top-16 left-0 w-full lg:w-auto lg:flex text-center lg:space-x-8 lg:items-center p-4 lg:p-0 transform duration-700 backdrop-blur-sm backdrop-saturate-150 bg-white/80 font-normal lg:bg-transparent lg:shadow-none ${
+            isOpen ? "block" : "hidden"
           }`}
         >
           <li className="py-2 lg:py-0">
@@ -45,34 +45,7 @@ const Header = () => {
               className="block lg:inline hover:text-violet-900 hover:underline"
               onClick={() => setIsOpen(false)}
             >
-              Ai With Text
-            </Link>
-          </li>
-          <li className="py-2 lg:py-0">
-            <Link
-              to="/ai-with-image"
-              className="block lg:inline hover:text-violet-900 hover:underline"
-              onClick={() => setIsOpen(false)}
-            >
-              Ai with Image
-            </Link>
-          </li>
-          <li className="py-2 lg:py-0">
-            <Link
-              to="/about-us"
-              className="block lg:inline hover:text-violet-900 hover:underline"
-              onClick={() => setIsOpen(false)}
-            >
-              About Us
-            </Link>
-          </li>
-          <li className="py-2 lg:py-0">
-            <Link
-              to="/user-guide"
-              className="block lg:inline hover:text-violet-900 hover:underline"
-              onClick={() => setIsOpen(false)}
-            >
-              User Guide
+              Ask a query
             </Link>
           </li>
           <li className="py-2 lg:py-0">
@@ -81,7 +54,16 @@ const Header = () => {
               className="block lg:inline hover:text-violet-900 hover:underline"
               onClick={() => setIsOpen(false)}
             >
-              Calories Calculator
+              QR and Recipes
+            </Link>
+          </li>
+          <li className="py-2 lg:py-0">
+            <Link
+              to="/kcal-intake"
+              className="block lg:inline hover:text-violet-900 hover:underline"
+              onClick={() => setIsOpen(false)}
+            >
+              Kcal Calculator
             </Link>
           </li>
           <li className="py-2 lg:py-0">
