@@ -23,7 +23,7 @@ const AllRoutes = () => {
       <Route path="/ai-with-image" element={<AiwithImage />} />
       <Route path="/ai-with-text" element={<AiwithText />} />
       <Route path="/details/:id" element={<CardDetails />} />
-      <Route path="/kcal-intake/:id" element={<CaloriesIntake/>} /> {/* Add this route */}
+      <Route path="/kcal-intake" element={<CaloriesIntake/>} /> {/* Add this route */}
     </Routes>
   );
 };
