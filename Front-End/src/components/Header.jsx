@@ -13,7 +13,7 @@ const Header = () => {
       <nav className="container mx-auto flex justify-between items-center p-4">
         {/* Logo */}
         <div className="text-2xl font-bold">
-          <Link to="/">MyApp</Link>
+          <Link to="/">Pro Nutrition</Link>
         </div>
 
         {/* Hamburger Button */}
@@ -26,7 +26,7 @@ const Header = () => {
 
         {/* Links */}
         <ul
-          className={`absolute lg:static top-16 left-0 w-full lg:w-auto lg:flex text-center lg:space-x-8 lg:items-center p-4 lg:p-0 transform duration-700 backdrop-blur-sm backdrop-saturate-150 bg-white/80 lg:bg-transparent lg:shadow-none ${
+          className={`absolute lg:static top-16 left-0 w-full lg:w-auto lg:flex text-center lg:space-x-8 lg:items-center p-4 lg:p-0 transform duration-700 backdrop-blur-sm backdrop-saturate-150 bg-white/80 font-normal lg:bg-transparent lg:shadow-none ${
             isOpen ? "block" : "hidden"
           }`}
         >
@@ -54,16 +54,16 @@ const Header = () => {
               className="block lg:inline hover:text-violet-900 hover:underline"
               onClick={() => setIsOpen(false)}
             >
-              Calories Calculator
+              QR and Recipes
             </Link>
           </li>
           <li className="py-2 lg:py-0">
             <Link
-              to="/about-us"
+              to="/kcal-intake"
               className="block lg:inline hover:text-violet-900 hover:underline"
               onClick={() => setIsOpen(false)}
             >
-              About
+              Kcal Calculator
             </Link>
           </li>
           <li className="py-2 lg:py-0">

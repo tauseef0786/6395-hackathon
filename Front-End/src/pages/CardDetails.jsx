@@ -30,7 +30,7 @@ export default function CardDetails() {
     <div className="min-h-screen bg-gradient-to-b from-violet-200 to-violet-500 p-8 flex flex-col items-center relative">
       {/* Back Button */}
       <button
-        className="absolute top-24 left-8 bg-violet-600 text-white px-6 py-2 rounded-md shadow-lg hover:bg-violet-700 transition-all"
+        className="absolute top-4 left-8 sm:mb-4 bg-violet-600 text-white px-6 py-2 rounded-md shadow-lg hover:bg-violet-700 transition-all"
         onClick={() => navigate(-1)}
       >
         Back
@@ -41,7 +41,7 @@ export default function CardDetails() {
         <div className="bg-white rounded-lg shadow-xl p-8 w-full sm:w-2/3 text-violet-700 flex flex-col items-start">
           <div className="w-full mb-6">
             <img
-              className="w-full h-[300px] sm:h-auto object-cover rounded-lg"
+              className="w-full h-[250px] sm:h-[300px] object-cover rounded-lg" // Set consistent size for the images
               src={dish.image}
               alt={dish.dishName}
             />
@@ -66,7 +66,7 @@ export default function CardDetails() {
         </div>
 
         {/* QR Code Section */}
-        <div className="bg-white p-6 rounded-lg shadow-lg w-full sm:w-1/3 flex justify-center items-center ml-5">
+        <div className="bg-white p-6 rounded-lg shadow-lg w-full sm:w-1/3 flex justify-center items-center">
           <QRCode
             value={qrCodeData}
             size={250}

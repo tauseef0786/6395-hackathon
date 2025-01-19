@@ -7,7 +7,8 @@ import CaloriesCalculator from '../pages/CaloriesCalculator';
 import ContactUs from '../pages/ContactUs';
 import AiwithImage from '../pages/AiwithImage';
 import AiwithText from '../pages/AiwithText';
-import CardDetails from '../pages/CardDetails'; // Import CardDetails component
+import CardDetails from '../pages/CardDetails'; 
+import CaloriesIntake from '../components/CaloriesIntake'; // Add this import
 
 
 
@@ -21,7 +22,8 @@ const AllRoutes = () => {
       <Route path="/contact-us" element={<ContactUs />} />
       <Route path="/ai-with-image" element={<AiwithImage />} />
       <Route path="/ai-with-text" element={<AiwithText />} />
-      <Route path="/details/:id" element={<CardDetails />} /> {/* Add this route */}
+      <Route path="/details/:id" element={<CardDetails />} />
+      <Route path="/kcal-intake/:id" element={<CaloriesIntake/>} /> {/* Add this route */}
     </Routes>
   );
 };
