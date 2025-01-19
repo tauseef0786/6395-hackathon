@@ -7,7 +7,9 @@ const App = () => {
   return (
     <>
       <Header />
-      <AllRoutes />
+      <div className="mt-10"> {/* Adjust margin based on your header height */}
+        <AllRoutes />
+      </div>
       <Footer />
     </>
   );
