@@ -1,12 +1,11 @@
-import React from 'react';
+import React from 'react'
+import CalorieIntake from '../components/CaloriesIntake'
 
-const CaloriesCalculator = () => {
+export default function CaloriesCalculator() {
   return (
     <div>
-      <h1>Calories Calculator</h1>
-      <p>Calculate your daily calorie needs.</p>
+      <CalorieIntake/>
+      
     </div>
-  );
-};
-
-export default CaloriesCalculator;
+  )
+}
