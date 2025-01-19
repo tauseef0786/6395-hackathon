@@ -1,33 +1,36 @@
 import React from 'react';
 import { FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import Mahesh from '../assets/mahesh.jpg'; // Importing image directly
+import Touseef from '../assets/touseef.jpg';
+import Deepesh from '../assets/deepesh.jpg';
 
 const teamMembers = [
   {
     name: 'Mahesh',
-    image: '/assets/mahesh.jpg', // Replace with your image link
+    image: Mahesh, // Use the imported image variable
     github: 'https://github.com/mahesh-pagrut',
     instagram: 'https://www.instagram.com/imaxvibe?igsh=bHJkcG8yM2ZnNmEx',
     linkedin: 'https://www.linkedin.com/in/mahesh-pagrut-%F0%9F%8E%AE-887535274/',
   },
   {
     name: 'Md. Touseef',
-    image: '/assets/touseef.jpg', // Replace with your image link
-    github: 'https://github.com/touseef',
-    instagram: 'https://www.instagram.com/touseef',
-    linkedin: 'https://www.linkedin.com/in/touseef',
+    image: Touseef, // Use the imported image variable
+    github: 'https://github.com/tauseef0786',
+    instagram: 'https://www.instaam.com/touseef',
+    linkedin: 'https://www.linked.com/in/touseef',
   },
   {
     name: 'Deepesh',
-    image: '/assets/deepesh.jpg', // Replace with your image link
+    image: Deepesh, // Use the imported image variable
     github: 'https://github.com/deepesh',
-    instagram: 'https://www.instagram.com/deepesh',
-    linkedin: 'https://www.linkedin.com/in/deepesh',
+    instagram: 'https://www.inagram.com/deepesh',
+    linkedin: 'https://www.linkin.com/in/deepesh',
   },
 ];
 
 export default function ContactUs() {
   return (
-    <div className="min-h-screen bg-white p-8 text-violet-700 flex items-center justify-center">
+    <div className="min-h-screen bg-gradient-to-b from-white to-indigo-900 p-8 text-violet-700 flex items-center justify-center">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
