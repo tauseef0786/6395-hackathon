@@ -9,8 +9,11 @@ export default function CardDetails() {
 
   if (!dish) {
     return (
+
       <div className="flex items-center justify-center min-h-screen bg-violet-100">
         <h1 className="text-2xl font-bold text-violet-700">No dish details available.</h1>
+
+    
       </div>
     );
   }
@@ -27,14 +30,19 @@ export default function CardDetails() {
   `;
 
   return (
+
     <div className="min-h-screen bg-gradient-to-b from-violet-200 to-violet-500 p-8 flex flex-col items-center relative">
       {/* Back Button */}
       <button
+
         className="absolute top-4 left-8 sm:mb-4 bg-violet-600 text-white px-6 py-2 rounded-md shadow-lg hover:bg-violet-700 transition-all"
+
+      
         onClick={() => navigate(-1)}
       >
         Back
       </button>
+
 
       <div className="flex flex-col sm:flex-row gap-8 w-full sm:w-3/4 md:w-2/3 lg:w-2/3">
         {/* Dish Details */}
@@ -66,12 +74,15 @@ export default function CardDetails() {
         </div>
 
         {/* QR Code Section */}
+
         <div className="bg-white p-6 rounded-lg shadow-lg w-full sm:w-1/3 flex justify-center items-center">
+
           <QRCode
             value={qrCodeData}
             size={250}
             bgColor="#ffffff"
             fgColor="#4B0082"  // Violet color for the QR Code
+
             level="Q"
             includeMargin={true}
           />
