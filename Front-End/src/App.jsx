@@ -6,9 +6,13 @@ import Footer from "./components/Footer";
 const App = () => {
   return (
     <>
-      <Header/>
-      <AllRoutes />
-      <Footer/>
+
+      <Header />
+      <div className="mt-10"> {/* Adjust margin based on your header height */}
+        <AllRoutes />
+      </div>
+      <Footer />
+
     </>
   );
 };

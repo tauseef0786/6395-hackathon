@@ -41,20 +41,11 @@ const Header = () => {
           </li>
           <li className="py-2 lg:py-0">
             <Link
-              to="/ai-with-text"
+              to="/calories-calculator"
               className="block lg:inline hover:text-violet-900 hover:underline"
               onClick={() => setIsOpen(false)}
             >
-              Ai With Text
-            </Link>
-          </li>
-          <li className="py-2 lg:py-0">
-            <Link
-              to="/ai-with-image"
-              className="block lg:inline hover:text-violet-900 hover:underline"
-              onClick={() => setIsOpen(false)}
-            >
-              Ai with Image
+              Calories Calculator
             </Link>
           </li>
           <li className="py-2 lg:py-0">
@@ -63,25 +54,7 @@ const Header = () => {
               className="block lg:inline hover:text-violet-900 hover:underline"
               onClick={() => setIsOpen(false)}
             >
-              About Us
-            </Link>
-          </li>
-          <li className="py-2 lg:py-0">
-            <Link
-              to="/user-guide"
-              className="block lg:inline hover:text-violet-900 hover:underline"
-              onClick={() => setIsOpen(false)}
-            >
-              User Guide
-            </Link>
-          </li>
-          <li className="py-2 lg:py-0">
-            <Link
-              to="/calories-calculator"
-              className="block lg:inline hover:text-violet-900 hover:underline"
-              onClick={() => setIsOpen(false)}
-            >
-              Calories Calculator
+              About
             </Link>
           </li>
           <li className="py-2 lg:py-0">
