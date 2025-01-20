@@ -66,6 +66,22 @@ $ npm i
 $ npm run dev
 ```
 
+## Screenshots 
+## Ai Response With Image  
+![Upload Image And Get Response](https://github.com/user-attachments/assets/ed743735-f566-4e7a-9e4d-e7eeb3c86a32)
+
+## Calories Calculator
+<img width="1470" alt="Screenshot 2025-01-20 at 8 08 37 PM" src="https://github.com/user-attachments/assets/fa7ab2aa-84bb-47a0-a12c-e52de4c22df5" />
+
+## Ai Response With Text
+<img width="1470" alt="Screenshot 2025-01-20 at 8 09 16 PM" src="https://github.com/user-attachments/assets/b8f3ba6b-ee8c-4f84-bbf8-ac5b73478206" />
+
+## Dish Items
+<img width="1470" alt="Screenshot 2025-01-20 at 8 08 29 PM" src="https://github.com/user-attachments/assets/9dc6c8ea-030e-4619-aee1-2379c84a6cf7" />
+
+## Calorie Intake Required Per Day
+<img width="1470" alt="Screenshot 2025-01-20 at 8 09 44 PM" src="https://github.com/user-attachments/assets/7b5d16d1-50b4-42ed-91e1-72a08fbf50e7" />
+
 ## Tools/Languages
 
 [![REAct](https://img.shields.io/badge/-REAct-000?style=for-the-badge&logo=REAct)](#) [![vite](https://img.shields.io/badge/-vite-000?style=for-the-badge&logo=vite)](#)  [![JS](https://img.shields.io/badge/-JAVASCRIPT-000?style=for-the-badge&logo=javascript&logoColor=F0DB4F)](#) [![HTML](https://img.shields.io/badge/-HTML-000?style=for-the-badge&logo=html5)](#) [![CSS](https://img.shields.io/badge/-CSS-000?style=for-the-badge&logo=css3&logoColor=1572B6)](#) [![NPM](https://img.shields.io/badge/-npm-000?style=for-the-badge&logo=npm)](#) [![netlify](https://img.shields.io/badge/-netlify-000?style=for-the-badge&logo=netlify)](#)
