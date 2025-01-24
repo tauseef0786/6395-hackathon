@@ -13,9 +13,9 @@ app.use(cors())
 
 app.use("/api/dish", dishRouter)
 
-app.get("/health", (req, res) => {
-    res.send("Server is healthy")
-})
+// app.get("/health", (req, res) => {
+//     res.send("Server is healthy")
+// })
 
 app.listen(PORT, () => {
     db()
