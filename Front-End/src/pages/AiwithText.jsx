@@ -4,7 +4,7 @@ import boxbg from "../assets/boxbg.png";
 import robo2 from "../assets/robo2.mp4"; // Example video file
 
 const NutritionistChat = () => {
-  const genAI = new GoogleGenerativeAI("AIzaSyBVGsZc-vdZuU9zS6dculPS0ZFh0905k2c");
+  const genAI = new GoogleGenerativeAI("AIzaSyBUehaOcQ42cMU9BRIeY8fa_-qZJ-mXdNQ");
 
   const [userQuery, setUserQuery] = useState("");
   const [chatHistory, setChatHistory] = useState([]);
