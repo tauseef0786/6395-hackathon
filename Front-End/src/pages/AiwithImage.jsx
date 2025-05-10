@@ -4,7 +4,7 @@ import { getBase64 } from "../helpers/image-Helper";
 import robo1 from "../assets/robo1.mp4"; // Import the MP4 file
 
 const AiwithImage = () => {
-  const genAI = new GoogleGenerativeAI("AIzaSyBVGsZc-vdZuU9zS6dculPS0ZFh0905k2c");
+  const genAI = new GoogleGenerativeAI("AIzaSyBUehaOcQ42cMU9BRIeY8fa_-qZJ-mXdNQ");
 
   const [image, setImage] = useState(null);
   const [imageInlineData, setImageInlineData] = useState("");
